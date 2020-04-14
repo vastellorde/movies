@@ -1,0 +1,18 @@
+<div *ngIf="movie" class="container" fxLayout="column" fxLayoutAlign="flex-start center">
+  <div fxLayout="row" fxLayoutGap="2rem">
+    <img src="assets/images/movie-covers/{{ movie.img }}" alt="{{movie.name}}">
+    <div fxLayout="column">
+      <span class="mat-title">{{movie.name}}</span>
+      <span class="mat-subheading-2">Рейтинг: {{movie.rate}}</span>
+      <span class="mat-subheading-2">Жанр: {{movie.genres}}</span>
+      <span class="mat-subheading-2">Длительность: {{movie.length}}</span>
+      <span class="mat-body-2">{{movie.description}}</span>
+    </div>
+  </div>
+  <img src="assets/player.png" alt="player placeholder">
+  <div fxLayout="row wrap">
+    <app-movie [movie]="movie" *ngFor="let movie of movieList"></app-movie>
+  </div>
+</div>
+
+

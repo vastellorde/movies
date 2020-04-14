@@ -1,0 +1,10 @@
+<div fxLayout="row" class="mat-elevation-z5" style="width: 360px">
+  <img [src]="'assets/images/movie-covers/' + movie.img" alt="">
+  <div fxLayout="column" style="padding: 1rem">
+    <span class="mat-title" [routerLink]="['/', movie.key]">{{movie.name}}</span>
+    <span class="mat-subheading-2">Rate: {{movie.rate}}</span>
+    <span class="mat-body-2">{{movie.description | slice:0:40}}...</span>
+    <div fxFlex></div>
+    <button mat-stroked-button color="primary" [routerLink]="['/', movie.key]">Подробнее</button>
+  </div>
+</div>

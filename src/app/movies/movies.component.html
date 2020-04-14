@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a mat-button routerLink="/">Movies</a>
+    <div fxFlex></div>
+    <mat-search-bar [(ngModel)]="searchField" (onEnter)="onSearch()" (onClose)="onClose()"></mat-search-bar>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container" fxLayout="column" fxLayoutAlign="flex-start center" fxLayoutGap="2rem">
+  <mat-card class="mat-elevation-z5">
+    <mat-chip-list aria-label="genre selection">
+      <mat-chip *ngFor="let genre of genres | keyvalue"
+                (click)="selectGenre(genre.value)"
+                [selected]="selectedGenre == genre.value">{{genre.value}}</mat-chip>
+    </mat-chip-list>
+  </mat-card>
+  <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="2rem">
+    <app-movie [movie]="movie" *ngFor="let movie of movieList"></app-movie>
+  </div>
+</div>
